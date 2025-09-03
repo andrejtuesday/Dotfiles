@@ -20,5 +20,4 @@ M.base46 = {
 --          lazyload = false
 --      }
 -- }
-
 return M
