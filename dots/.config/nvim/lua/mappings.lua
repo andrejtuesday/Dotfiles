@@ -11,8 +11,6 @@ map("i", "jk", "<ESC>")
 
 vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 
-
-
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "NvimTree",
   callback = function()
@@ -46,3 +44,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+
+local dap = require("dap")
+
+vim.keymap.set("n", "<F9>", function()
+  if dap.session() then
+    dap.restart()
+  else
+    dap.continue()
+  end
+end, { desc = "Restart or start debugger" })
+
+vim.keymap.set("n", "<F6>", function() dap.continue() end)
+vim.keymap.set("n", "<F7>", function() require("dap").terminate() end)
+vim.keymap.set("n", "<F10>", function() dap.step_over() end)
+vim.keymap.set("n", "<F11>", function() dap.step_into() end)
+vim.keymap.set("n", "<F12>", function() dap.step_out() end)
+vim.keymap.set("n", "<leader>b", function() dap.toggle_breakpoint() end)
+vim.keymap.set("n", "<leader>B", function()
+  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
