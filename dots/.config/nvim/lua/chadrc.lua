@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-	theme = "tuesdaytheme",
+	theme = "flexoki",
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
@@ -20,4 +20,5 @@ M.base46 = {
 --          lazyload = false
 --      }
 -- }
+
 return M

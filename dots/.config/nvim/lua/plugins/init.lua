@@ -25,4 +25,21 @@ return {
   -- 		},
   -- 	},
   -- },
+
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+      require("toggleterm").setup{
+        size = 20,
+        open_mapping = [[<F4>]],
+        direction = "float",  -- makes the terminal floating
+        float_opts = {
+          border = "double",  -- "single", "double", "shadow", etc.
+        },
+      }
+    end,
+
+  }
 }
+

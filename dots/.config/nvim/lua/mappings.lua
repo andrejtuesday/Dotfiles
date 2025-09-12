@@ -1,13 +1,8 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
-
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 
@@ -64,3 +59,13 @@ vim.keymap.set("n", "<leader>b", function() dap.toggle_breakpoint() end)
 vim.keymap.set("n", "<leader>B", function()
   dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)
+
+
+vim.keymap.set("n", "<F4>", function()
+  require("toggleterm").toggle()
+end, { noremap = true, silent = true })
+
+vim.keymap.set("t", "<F4>", function()
+  require("toggleterm").toggle()
+end, { noremap = true, silent = true })
+
